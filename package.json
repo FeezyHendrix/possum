@@ -2,11 +2,21 @@
   "name": "possum",
   "version": "1.0.0",
   "description": "Lightweight http client with reconciliation",
-  "main": "main.ts",
   "repository": "https://github.com/FeezyHendrix/possum.git",
   "author": "AbdulHafeez AbdulRaheem <switchdevelop1@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "typecript": "^0.0.1-security"
+  "scripts": {
+    "build": "tsup"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
   }
 }

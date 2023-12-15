@@ -46,24 +46,20 @@ performPossumRequest(requestData)
 
 ### Customization
 
-You can customize the behavior by...
+```typescript
+  url: string;
+  method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+  data?: any,
+  headers: any;
+```
 
 ## API Reference
 - `performPossumRequest(request: Request): Promise<any>`
-- ...
+- `processFailedRequestsOnLoad(): void`
 
 ## Contributing
-Contributions to `possum` are welcome! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
+Contributions are always welcome!
+If you have new features to introduce or bugs to squash, kindly submit a [Pull Request (PR)](https://github.com/FeezyHendrix/possum/pulls) to make your mark. Your participation is highly appreciated.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-- Thanks to all contributors who have helped with this project.
-
----
-
-### Notes
-- **Customization**: Fill in with details on how users can customize the library.
-- **API Reference**: Expand this section with more detailed documentation of the API.
-- **Contributing and License**: Ensure you have `CONTRIBUTING.md` and `LICENSE` files in your repository, and link them appropriately.
