@@ -5,5 +5,8 @@
   "main": "main.ts",
   "repository": "https://github.com/FeezyHendrix/possum.git",
   "author": "AbdulHafeez AbdulRaheem <switchdevelop1@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "typecript": "^0.0.1-security"
+  }
 }
