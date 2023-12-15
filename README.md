@@ -11,20 +11,20 @@
 
 ## Installation
 ```bash
-npm install possum
+npm install possum-client
 ```
 
 Or using yarn:
 
 ```bash
-yarn add possum
+yarn add possum-client
 ```
 
 ## Usage
 First, import and initialize `Possum` in your application.
 
 ```typescript
-import { performPossumRequest } from 'possum';
+import { performPossumRequest } from 'possum-client';
 ```
 
 ### Making Requests
@@ -32,7 +32,7 @@ import { performPossumRequest } from 'possum';
 Use `performPossumRequest` to handle your HTTP requests:
 
 ```typescript
-import { performPossumRequest } from 'possum';
+import { performPossumRequest } from 'possum-client';
 
 const requestData = {
     url: 'https://example.com/data',

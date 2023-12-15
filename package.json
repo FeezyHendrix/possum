@@ -1,5 +1,5 @@
 {
-  "name": "possum",
+  "name": "possum-client",
   "version": "1.0.0",
   "description": "Lightweight http client with reconciliation",
   "repository": "https://github.com/FeezyHendrix/possum.git",

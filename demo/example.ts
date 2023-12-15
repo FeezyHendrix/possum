@@ -1,4 +1,4 @@
-import { performPossumRequest } from "possum";
+import { performPossumRequest } from "possum-client";
 
 const callApi = async () => {
   try {
