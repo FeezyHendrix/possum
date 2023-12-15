@@ -1,0 +1,9 @@
+{
+  "name": "possum",
+  "version": "1.0.0",
+  "description": "Lightweight http client with reconciliation",
+  "main": "main.ts",
+  "repository": "https://github.com/FeezyHendrix/possum.git",
+  "author": "AbdulHafeez AbdulRaheem <switchdevelop1@gmail.com>",
+  "license": "MIT"
+}
