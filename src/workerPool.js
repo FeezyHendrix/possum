@@ -23,7 +23,8 @@ class WorkerPool
      */
     _init ()
     {
-        while ( --this._threadNum >= 0 ) this._createWorker();
+        let threads = this._threadNum;
+        while ( --threads >= 0 ) this._createWorker();
     }
 
     /**
