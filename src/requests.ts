@@ -43,7 +43,7 @@ export function processFailedRequestsOnLoad(): void {
  */
 function retryRequestInWorker(request: StoredPossumRequest): void {
   // Initialize a new Web Worker.
-  const worker = new Worker("requestWorker.js");
+  const worker = new Worker("worker.js");
 
   // Send the failed request to the worker for processing.
   worker.postMessage(request);
