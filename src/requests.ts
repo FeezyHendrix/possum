@@ -1,5 +1,6 @@
 import { PossumRequest, StoredPossumRequest } from "./models";
 import { getFailedRequests, removeFailedRequest, storeFailedRequest } from "./storage";
+import workerPool from './workerPool';
 
 /**
  * Performs an HTTP request using the Fetch API.
@@ -55,4 +56,19 @@ function retryRequestInWorker(request: StoredPossumRequest): void {
       removeFailedRequest(request.id);
     }
   };
+
+  /* 
+    Using the worker pool: 
+    workerPool.run( request, ( err, event ) =>
+    {
+      if ( err ) {
+        // If an error occurs, store the failed request for later retry and rethrow the error.
+        storeFailedRequest(request);
+        return;
+      };
+      
+        // If the request is successfully processed, remove it from the list of failed requests.
+        removeFailedRequest(request.id);
+    })
+  */
 }
