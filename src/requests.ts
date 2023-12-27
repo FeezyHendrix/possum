@@ -42,33 +42,35 @@ export function processFailedRequestsOnLoad(): void {
  * Retries a failed request using a Web Worker.
  * @param request - The StoredPossumRequest object representing the failed request.
  */
-function retryRequestInWorker(request: StoredPossumRequest): void {
-  // Initialize a new Web Worker.
-  const worker = new Worker("worker.js");
-
-  // Send the failed request to the worker for processing.
-  worker.postMessage(request);
-
-  // Handle messages received from the worker.
-  worker.onmessage = function (event) {
-    // If the request is successfully processed, remove it from the list of failed requests.
-    if (event.data.success) {
-      removeFailedRequest(request.id);
-    }
-  };
-
+function retryRequestInWorker ( request: StoredPossumRequest ): void
+{
   /* 
-    Using the worker pool: 
-    workerPool.run( request, ( err, event ) =>
-    {
-      if ( err ) {
-        // If an error occurs, store the failed request for later retry and rethrow the error.
-        storeFailedRequest(request);
-        return;
-      };
-      
-        // If the request is successfully processed, remove it from the list of failed requests.
+    Using a Web Worker per request:
+    // Initialize a new Web Worker.
+    const worker = new Worker("worker.js");
+  
+    // Send the failed request to the worker for processing.
+    worker.postMessage(request);
+  
+    // Handle messages received from the worker.
+    worker.onmessage = function (event) {
+      // If the request is successfully processed, remove it from the list of failed requests.
+      if (event.data.success) {
         removeFailedRequest(request.id);
-    })
+      }
+    };
   */
+    // Using the worker pool: 
+  workerPool.run( request, ( err, event ) =>
+  {
+    if ( err || !event.data.success )
+    {
+      // If an error occurs, store the failed request for later retry and rethrow the error.
+      storeFailedRequest( request );
+      return;
+    };
+    console.log( event.data );
+    // If the request is successfully processed, remove it from the list of failed requests.
+    removeFailedRequest( request.id );
+  } );
 }
