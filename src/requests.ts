@@ -1,3 +1,4 @@
+import axios, { AxiosResponse } from "axios";
 import { PossumRequest, StoredPossumRequest } from "./models";
 import { getFailedRequests, removeFailedRequest, storeFailedRequest } from "./storage";
 import workerPool from "./workerPool";
@@ -7,13 +8,14 @@ import workerPool from "./workerPool";
  * @param request - The PossumRequest object containing all necessary data for the request.
  * @returns A Promise that resolves to the response of the HTTP request.
  */
-export async function performPossumRequest(request: PossumRequest): Promise<any> {
+export async function performPossumRequest(request: PossumRequest): Promise<AxiosResponse> {
   try {
-    // Execute the HTTP request using the fetch API.
-    const response = await fetch(request.url, {
+    // Execute the HTTP request using axios.
+    const response = await axios({
       method: request.method,
+      url: request.url,
       headers: request.headers,
-      body: JSON.stringify(request.data),
+      data: request.data,
     });
 
     return response;
