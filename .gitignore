@@ -4,5 +4,8 @@
 /coverage.data
 /coverage/
 
+# Ignore IDE configs
+.idea
+
 # Build files
 /dist

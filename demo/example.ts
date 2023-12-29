@@ -1,4 +1,6 @@
-import { performPossumRequest } from "possum-client";
+import { PossumClient } from "possum-client";
+
+const { performPossumRequest } = PossumClient()
 
 const callApi = async () => {
   try {

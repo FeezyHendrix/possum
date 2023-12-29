@@ -880,11 +880,6 @@ tsup@^8.0.1:
     sucrase "^3.20.3"
     tree-kill "^1.2.2"
 
-typecript@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/typecript/-/typecript-0.0.1-security.tgz#b363125e19f0516e927d99aa1546044cc0cb9595"
-  integrity sha512-88WUWdO0zl/cC+X44m7TJkNssn0sTwZOSAyZu7ZmY6BfGJ4idVWJGjFmd6wEjS3yhWUYrAszzNMHZMIJ7h3ycg==
-
 typescript@^5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
