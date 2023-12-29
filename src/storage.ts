@@ -1,14 +1,13 @@
 import {PossumRequest, StoredPossumRequest} from "./models";
+import {inBrowser} from "./in-browser";
 
 let STORAGE_KEY = "failedRequests";
-
-const inBrowser = typeof window !== "undefined" && typeof window.document !== "undefined"
 
 const inMemoryStore: Record<string, any> = {}
 
 let PossumStore = {
     get(id: string): any {
-        if (!inBrowser) {
+        if (!inBrowser()) {
             return inMemoryStore[id]
         }
 
@@ -17,7 +16,7 @@ let PossumStore = {
         return data ? JSON.parse(data) : null
     },
     set(id: string, data: any): void {
-        if (!inBrowser) {
+        if (!inBrowser()) {
             inMemoryStore[id] = {...data}
             return
         }
