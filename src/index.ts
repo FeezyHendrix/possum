@@ -18,16 +18,13 @@ if (inBrowser()) {
 
 }
 
-export interface PossumClientOptions extends PossumStoreConfigOptions {
+export interface PossumClientOptions {
+    store?: PossumStoreConfigOptions
 }
 
 export function PossumClient(options?: PossumClientOptions) {
-
-    if (options != null) {
-        const {get, set, keyName} = options
-
-        configurePossumStore({get, set, keyName})
+    if (options?.store != null) {
+        configurePossumStore(options.store)
     }
-
     return {performPossumRequest, processFailedRequestsOnLoad}
 }
