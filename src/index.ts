@@ -10,17 +10,17 @@ export interface PossumClientOptions {
     store?: PossumStoreConfigOptions;
     /**
      * If true possum would attach an event listener to process stored failed requests on `DOMContentLoaded`.
-     * This option only works while on the browser
+     * This option only works while on the browser (default: `true`)
      */
     retryOnPageLoad?: boolean;
 }
 
-export function PossumClient(options?: PossumClientOptions) {
-    if (options?.store != null) {
+export function PossumClient(options: PossumClientOptions = {retryOnPageLoad: true}) {
+    if (options.store != null) {
         configurePossumStore(options.store)
     }
 
-    if (options?.retryOnPageLoad && inBrowser()) {
+    if (options.retryOnPageLoad && inBrowser()) {
         /**
          * Adds an event listener to the document that triggers when the DOM is fully loaded.
          * This ensures that the script runs only after the entire page is loaded.
