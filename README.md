@@ -44,7 +44,7 @@ yarn add possum-client
 First, import and initialize `Possum` in your application.
 
 ```typescript
-import {performPossumRequest} from 'possum-client';
+import {PossumClient} from "possum-client";
 ```
 
 ### Making Requests
